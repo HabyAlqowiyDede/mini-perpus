@@ -11,7 +11,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="card card-sm-3">
                         <div class="card-icon bg-primary">
-                            <i class="ion ion-person"></i>
+                            <i class="fas fa-book"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
@@ -71,76 +71,104 @@
             </div>
 
             @role('admin')
-            <div class="row">
-                <div class="col-lg-8 col-md-12 col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Bar Chart</h4>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="myChart"></canvas>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12 col-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <h4>Bar Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart"></canvas>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-12 col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Recent Activities</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled list-unstyled-border">
-                                <li class="media">
-                                    <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-1.jpeg"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right"><small>10m</small></div>
-                                        <div class="media-title">Farhan A Mujib</div>
-                                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin.</small>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-2.jpeg"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right"><small>10m</small></div>
-                                        <div class="media-title">Ujang Maman</div>
-                                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin.</small>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-3.jpeg"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right"><small>10m</small></div>
-                                        <div class="media-title">Rizal Fakhri</div>
-                                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin.</small>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-4.jpeg"
-                                        alt="avatar">
-                                    <div class="media-body">
-                                        <div class="float-right"><small>10m</small></div>
-                                        <div class="media-title">Alfa Zulkarnain</div>
-                                        <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                            sollicitudin.</small>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="#" class="btn btn-primary btn-round">
-                                    View All
-                                </a>
+                    <div class="col-lg-4 col-md-12 col-12 col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Recent Activities</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled list-unstyled-border">
+                                    <li class="media">
+                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-1.jpeg"
+                                            alt="avatar">
+                                        <div class="media-body">
+                                            <div class="float-right"><small>10m</small></div>
+                                            <div class="media-title">Farhan A Mujib</div>
+                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                                sollicitudin.</small>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-2.jpeg"
+                                            alt="avatar">
+                                        <div class="media-body">
+                                            <div class="float-right"><small>10m</small></div>
+                                            <div class="media-title">Ujang Maman</div>
+                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                                sollicitudin.</small>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-3.jpeg"
+                                            alt="avatar">
+                                        <div class="media-body">
+                                            <div class="float-right"><small>10m</small></div>
+                                            <div class="media-title">Rizal Fakhri</div>
+                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                                sollicitudin.</small>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-4.jpeg"
+                                            alt="avatar">
+                                        <div class="media-body">
+                                            <div class="float-right"><small>10m</small></div>
+                                            <div class="media-title">Alfa Zulkarnain</div>
+                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+                                                sollicitudin.</small>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-primary btn-round">
+                                        View All
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             @endrole
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @json($hari),
+                datasets: [{
+                    label: 'Jumlah Peminjaman',
+                    data: @json($jumlah),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
     </section>
 @endsection

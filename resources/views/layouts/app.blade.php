@@ -39,12 +39,11 @@
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg">
                             <i class="ion ion-android-person d-lg-none"></i>
-                            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                            <div class="d-sm-none d-lg-inline-block">
+                                Selamat Datang, {{ auth()->user()->name }}
+                            </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="#" class="dropdown-item has-icon">
-                                <div class="badge badge-primary d-flex justify-center">Admin</div>
-                            </a>
                             <a href="profile.html" class="dropdown-item has-icon">
                                 <i class="ion ion-android-person"></i> Profile
                             </a>
@@ -104,6 +103,11 @@
                                             <a href="{{ route('peminjaman') }}"><i
                                                     class="fas fa-book"></i><span>pinjaman</span></a>
                                         </li>
+                                        <li class="active">
+                                             <a href="{{ route('riwayat.peminjaman') }}"><i
+                                                    class="fas fa-book"></i><span>Riwayat Peminjaman</span>
+                                            </a>
+                                        </li>
                                     @endrole
                             </aside>
                         </div>
@@ -136,11 +140,23 @@
     <script>
         let table = new DataTable('#myTable');
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <script src="/dist/modules/chart.min.js"></script>
     <script src="{{ '/dist/modules/summernote/summernote-lite.js' }}"></script>
-
+    $(document).ready(function () {
+    $('#table').DataTable({
+    pageLength: 10,
+    lengthChange: false,
+    searching: true,
+    ordering: true,
+    language: {
+    search: "",
+    searchPlaceholder: "Search..."
+    }
+    });
+    });
     <script>
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {

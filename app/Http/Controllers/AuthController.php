@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\AuthService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules\Password;
 
@@ -31,10 +32,11 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name'      => ['required'],
             'email'     => ['required', 'email', 'unique:users'],
-            'password'  => ['required',
-                            'confirmed',
-                            Password::min(8),
-                            ]
+            'password'  => [
+                'required',
+                'confirmed',
+                Password::min(8),
+            ]
         ]);
 
         try {
@@ -60,37 +62,31 @@ class AuthController extends Controller
         $validated = $request->validate([
             'email'     => ['required', 'email', 'exists:users'],
             'password'  => ['required']
-        ],[
-            'email.required' => 'Email wajib diisi',
-            'email.email'    => 'Email tidak valid',
-            'email.exists'    => 'Email tidak terdaftar',
-            'password.required' => 'Password wajib diisi'
         ]);
 
         try {
             $response = $this->authService->login($validated);
 
             if (!$response) {
-                return redirect()->back()->with('error', 'Kredensial tidak valid!');
+                return redirect()->back()
+                    ->with('error', 'Email atau password salah');
             }
-            return redirect('dashboard')->with('success', 'Login berhasil');
-        } catch (\Throwable $th) {
-                
-            Log::error('Error during login: ' . $th->getMessage(), [
-                'line'      => $th->getLine(),
-                'file'      => $th->getFile(),
-                'message'   => $th->getMessage(),
-            ]);
 
-            return redirect()->back()->with('error', 'Terjadi kesalahan');
+            return redirect()->route('dashboard')
+                ->with('success', 'Login berhasil');
+        } catch (\Throwable $th) {
+            Log::error('Error during login: ' . $th->getMessage());
+
+            return redirect()->back()
+                ->with('error', 'Terjadi kesalahan');
         }
     }
     public function logout()
     {
-        try{
+        try {
             session()->flush();
             return redirect("/")->with('success', 'Anda telah keluar');
-        } catch(\Throwable $th){
+        } catch (\Throwable $th) {
             Log::error([
                 'line'      => $th->getLine(),
                 'file'      => $th->getFile(),

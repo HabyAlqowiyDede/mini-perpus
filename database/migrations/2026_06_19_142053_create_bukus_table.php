@@ -18,7 +18,7 @@ return new class extends Migration
             $table ->string('pengarang');
             $table ->string('penerbit');
             $table->integer('stok')->default(0);
-            $table->enum('status', ['tersedia', 'dipinjam', 'rusak', 'hilang'])->default('tersedia');
+            $table->enum('status', ['tersedia', 'stok habis',])->default('tersedia');
             $table->timestamps();
         });
     }

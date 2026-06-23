@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
             $table->integer('jumlah');
-            $table->string('status')->default('dipinjam');
+            $table->enum('status',['dipinjam','tersedia']);
 
             $table->timestamps();
         });

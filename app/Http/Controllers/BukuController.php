@@ -40,7 +40,7 @@ class BukuController extends Controller
         );
 
         
-        $status = $request->stok > 0 ? 'tersedia' : 'dipinjam';
+        $status = $request->stok > 0 ? 'tersedia' : 'stok habis';
 
         Buku::create([
             'judul'     => $request->judul,
@@ -48,7 +48,7 @@ class BukuController extends Controller
             'pengarang' => $request->pengarang,
             'penerbit'  => $request->penerbit,
             'stok'      => $request->stok,
-            'status' => $request->status,
+            'status' => $status,
         ]);
 
         return redirect()->route('databuku')
@@ -68,6 +68,7 @@ class BukuController extends Controller
     public function edit($id)
     {
         $buku = Buku::findOrFail($id);
+        
         return view('Admin.Kelola_Buku.edit', compact('buku'));
     }
 
@@ -89,6 +90,7 @@ class BukuController extends Controller
         );
 
         $buku = Buku::findOrFail($id);
+        $status = $request->stok > 0 ? 'tersedia' : 'stok habis';
 
         $buku->update([
             'judul'     => $request->judul,

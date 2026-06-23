@@ -13,6 +13,64 @@ body {
 	background-color: #F6F6F6;
 	font-size: 14px;
 }
+/* background halaman */
+body {
+    background: linear-gradient(135deg, #7b5bd6, #b04cc4);
+}
+
+/* kotak tabel */
+.dataTables_wrapper {
+    background: white;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+}
+
+
+/* header tabel */
+table.dataTable thead th {
+    background: #2c2640 !important;
+    color: white !important;
+    font-weight: 500;
+    border: none !important;
+    padding: 12px;
+}
+
+
+/* isi tabel */
+table.dataTable tbody td {
+    padding: 10px 15px;
+    border: none !important;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* garis hover */
+table.dataTable tbody tr:hover {
+    background-color: #f5f5f5 !important;
+}
+
+
+/* hilangkan garis default */
+table.dataTable.no-footer {
+    border-bottom: none;
+}
+
+
+/* search */
+.dataTables_filter input {
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+}
+
+
+/* pagination */
+.dataTables_paginate .paginate_button {
+    border-radius: 20px !important;
+}
 
 .header-scroll {
     position: sticky;
