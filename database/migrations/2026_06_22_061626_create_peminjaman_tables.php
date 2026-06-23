@@ -16,10 +16,9 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('buku_id')->constrained()->cascadeOnDelete();
-
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
-
+            $table->integer('jumlah');
             $table->string('status')->default('dipinjam');
 
             $table->timestamps();

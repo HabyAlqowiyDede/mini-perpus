@@ -28,7 +28,8 @@ class BukuController extends Controller
                 'genre'     => 'required',
                 'pengarang' => 'required',
                 'penerbit'  => 'required',
-                'stok' => 'required|integer|min:0'
+                'stok' => 'required|integer|min:0',
+                'status' => $request->stok > 0 ? 'Tersedia' : 'Tidak Tersedia'
             ],
             [
                 'judul.required'     => 'Judul Harus Diisi',
@@ -47,7 +48,7 @@ class BukuController extends Controller
             'pengarang' => $request->pengarang,
             'penerbit'  => $request->penerbit,
             'stok'      => $request->stok,
-            'status'    => $status,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('databuku')

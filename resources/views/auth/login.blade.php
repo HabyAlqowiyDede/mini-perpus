@@ -5,12 +5,12 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Examples &rsaquo; Login &mdash; Stisla</title>
 
-  <link rel="stylesheet" href="{{ asset('/dist/modules/bootstrap/css/bootstrap.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('/dist/modules/ionicons/css/ionicons.min.css"')}}>
-  <link rel="stylesheet" href="{{ asset('/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('/dist/modules/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/dist/modules/ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css') }}">
 
-  <link rel="stylesheet" href="/dist/css/demo.css">
-  <link rel="stylesheet" href="/dist/css/style.css">
+  <link rel="stylesheet" href="{{ asset('/dist/css/demo.css') }}">
+  <link rel="stylesheet" href="{{ asset('/dist/css/style.css') }}">
 </head>
 
 <body>
@@ -27,7 +27,17 @@
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="{{ route('signin')}}" class="needs-validation" novalidate="">
+                @if(session('success'))
+                  <div class="alert alert-success">
+                    {{ session('success') }}
+                  </div>
+                @endif
+                @if(session('error'))
+                  <div class="alert alert-danger">
+                    {{ session('error') }}
+                  </div>
+                @endif
+                <form method="POST" action="{{ route('signin') }}" class="needs-validation" novalidate="">
                     @csrf
                     <div class="form-group">
                     <label for="email">Email</label>
@@ -54,7 +64,7 @@
                   <div class="form-group">
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                      <label class="custom-control-label" fgor="remember-me">Remember Me</label>
+                      <label class="custom-control-label" for="remember-me">Remember Me</label>
                     </div>
                   </div>
 

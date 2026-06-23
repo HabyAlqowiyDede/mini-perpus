@@ -4,9 +4,11 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title">Data Buku</h4>
+                @role('admin')
                 <div>
                     <a href="{{route('peminjaman.create')}}" class="btn btn-primary">Tambah Data</a>
                 </div>
+                @endrole
             </div>
             <div class="card-body">
                 <table class="table table-bordered" id="myTable">
@@ -21,17 +23,20 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-
                     <tbody>
+                        @foreach ($data as $index=>$item)
+
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $item->user->name }}</td>
+                            <td>{{ $item->buku->judul }}</td>
+                            <td>{{ $item->tanggal_pinjam }}</td>
+                            <td>{{ $item->tanggal_kembali }}</td>
+                            <td>{{ $item->jumlah }}</td>
                             <td></td>
                         </tr>
+                                                    
+                        @endforeach
                     </tbody>
                 </table>
             </div>

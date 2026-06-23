@@ -19,6 +19,7 @@ class BukuSeeder extends Seeder
                 'judul' => fake()->sentence(3),
                 'pengarang' => fake()->name(),
                 'penerbit' => fake()->company(),
+                'stok'      => fake()->numberBetween(1, 50),
                 'genre' => fake()->randomElement([
                 'Novel',
                 'Komik',
