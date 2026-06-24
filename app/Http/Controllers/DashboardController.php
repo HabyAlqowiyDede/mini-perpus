@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\Peminjaman;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -31,9 +33,27 @@ class DashboardController extends Controller
         }
 
         $totalBuku = Buku::count();
+        $totalUser = User::whereHas('roles', function ($q) {
+            $q->where('name', 'user');
+        })->count();
 
-        return view('dashboard', compact('totalBuku', 
-                                            'hari', 
-                                            'jumlah'));
+        $totalPeminjamanHariIni = Peminjaman::whereDate(
+            'tanggal_pinjam',
+            Carbon::today()
+        )->count();
+        // Tambahkan ini
+        $peminjamanTerbaru = Peminjaman::with(['user', 'buku'])
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('dashboard', compact(
+            'totalBuku',
+            'totalUser',
+            'hari',
+            'totalPeminjamanHariIni',
+            'jumlah',
+            'peminjamanTerbaru'
+        ));
     }
 }

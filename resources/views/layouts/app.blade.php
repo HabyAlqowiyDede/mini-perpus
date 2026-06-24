@@ -100,10 +100,6 @@
                                                     class="fas fa-book"></i><span>Buku</span></a>
                                         </li>
                                         <li class="active">
-                                            <a href="{{ route('peminjaman') }}"><i
-                                                    class="fas fa-book"></i><span>pinjaman</span></a>
-                                        </li>
-                                        <li class="active">
                                              <a href="{{ route('riwayat.peminjaman') }}"><i
                                                     class="fas fa-book"></i><span>Riwayat Peminjaman</span>
                                             </a>

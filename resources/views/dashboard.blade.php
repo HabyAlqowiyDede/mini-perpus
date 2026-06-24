@@ -8,7 +8,7 @@
     <div class="main-content  ">
         <section class="section">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
                     <div class="card card-sm-3">
                         <div class="card-icon bg-primary">
                             <i class="fas fa-book"></i>
@@ -23,47 +23,32 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
                     <div class="card card-sm-3">
                         <div class="card-icon bg-danger">
-                            <i class="ion ion-ios-paper-outline"></i>
+                            <i class="fas fa-user"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>News</h4>
+                                <h4>Total User</h4>
                             </div>
                             <div class="card-body">
-                                42
+                               {{ $totalUser }}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-12">
+                <div class="col-lg-4 col-md-6 col-12">
                     <div class="card card-sm-3">
                         <div class="card-icon bg-warning">
                             <i class="ion ion-paper-airplane"></i>
                         </div>
                         <div class="card-wrap">
                             <div class="card-header">
-                                <h4>Reports</h4>
+                                <h4>Total Peminjaman Hari</h4>
                             </div>
                             <div class="card-body">
-                                1,201
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12">
-                    <div class="card card-sm-3">
-                        <div class="card-icon bg-success">
-                            <i class="ion ion-record"></i>
-                        </div>
-                        <div class="card-wrap">
-                            <div class="card-header">
-                                <h4>Online Users</h4>
-                            </div>
-                            <div class="card-body">
-                                47
+                               {{ $totalPeminjamanHariIni}}
                             </div>
                         </div>
                     </div>
@@ -83,60 +68,32 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 col-12 col-sm-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Recent Activities</h4>
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-unstyled list-unstyled-border">
-                                    <li class="media">
-                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-1.jpeg"
-                                            alt="avatar">
-                                        <div class="media-body">
-                                            <div class="float-right"><small>10m</small></div>
-                                            <div class="media-title">Farhan A Mujib</div>
-                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                                sollicitudin.</small>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-2.jpeg"
-                                            alt="avatar">
-                                        <div class="media-body">
-                                            <div class="float-right"><small>10m</small></div>
-                                            <div class="media-title">Ujang Maman</div>
-                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                                sollicitudin.</small>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-3.jpeg"
-                                            alt="avatar">
-                                        <div class="media-body">
-                                            <div class="float-right"><small>10m</small></div>
-                                            <div class="media-title">Rizal Fakhri</div>
-                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                                sollicitudin.</small>
-                                        </div>
-                                    </li>
-                                    <li class="media">
-                                        <img class="mr-3 rounded-circle" width="50" src="../dist/img/avatar/avatar-4.jpeg"
-                                            alt="avatar">
-                                        <div class="media-body">
-                                            <div class="float-right"><small>10m</small></div>
-                                            <div class="media-title">Alfa Zulkarnain</div>
-                                            <small>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                                                sollicitudin.</small>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary btn-round">
-                                        View All
-                                    </a>
-                                </div>
-                            </div>
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Peminjam</th>
+                                        <th>Buku</th>
+                                        <th>Tanggal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($peminjamanTerbaru as $pinjam)
+                                        <tr>
+                                            <td>{{ $pinjam->user->name }}</td>
+                                            <td>{{ $pinjam->buku->judul }}</td>
+                                            <td>{{ $pinjam->tanggal_pinjam }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                Belum ada data
+                                            </td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -19,6 +19,14 @@ class PeminjamanController extends Controller
 
         return view('Admin.Kelola_Peminjaman.index', compact('data'));
     }
+    public function edit($id)
+    {
+        $data = Peminjaman::findOrFail($id);
+        $users = User::all();
+        $bukus = Buku::where('stok', '>', 0)->get();
+
+        return view('Admin.Kelola_Peminjaman.edit', compact('data', 'users', 'bukus'));
+    }
     public function create()
     {
         $users = User::role('user')->get();
